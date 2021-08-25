@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./style'); %>
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL SHORTENER</h1>
+    <p>Shortened links will become inactive after 6 months.</p>
+    <form action="/shortrandomUrls" method="POST">
+        <input required placeholder="URL" type="url" name="fullUrl" id="fullUrl" class="inputalone">
+        <button type="submit">Generate Random URL</button>
+    </form>
+
+    <form action="/shortUrls" method="POST">
+        <input required placeholder="URL" type="url" name="fullUrl" id="fullUrl" class="inputfield">
+        <input placeholder="Custom shortened URL" name="shortUrl" id="shortUrl" class="inputfield">
+        <button type="submit">Generate Custom URL</button>
+    </form>
+
+    <table id="table"><thead>
+        <tr>
+            <th>Full URL</th>
+            <th>Short URL</th>
+            <th>Clicks</th>
+        </tr>
+    </thead>
+<tbody>
+    <% xyz.forEach(shortUrl => { %>
+        <tr>
+            <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+            <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+            <td><%= shortUrl.clicks %></td>
+        </tr>
+    <%}) %>
+</tbody>
+</table>
+</body>
+</html>
