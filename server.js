@@ -12,10 +12,14 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
 
 app.get('/', async (req,res)=> {
+    setTimeout(updatedatabase, 300000)
     const shortUrls = await ShortUrl.find().sort({_id: -1})
     res.render('index', {xyz: shortUrls})
-    
 })
+
+async function updatedatabase(){
+    await ShortUrl.deleteMany({clicks:0})
+}
 
 app.post('/shortUrls', async (req,res) => {
     await ShortUrl.create({
