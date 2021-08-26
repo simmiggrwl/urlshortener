@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <script>
+
+    fetch("https://api.db-ip.com/v2/free/self")
+    .then((res)=> res.json())
+    .then((res)=> localStorage.setItem("continent", res.continentName))    
+
+    </script> -->
+
     <%- include('./style'); %>
     <title>URL Shortener</title>
 </head>
-<body>
+<body onload>
     <h1>URL SHORTENER</h1>
-    <p>Shortened links will become inactive after 6 months or if unused after 5 minutes of generating.</p>
+    <p>Generated links will become inactive 6 months after generation or if unused till after 5 minutes of generation.</p>
     <form action="/shortrandomUrls" method="POST">
         <input required placeholder="URL" type="url" name="fullUrl" id="fullUrl" class="inputalone">
         <button type="submit">Generate Random URL</button>
@@ -25,7 +34,13 @@
         <tr>
             <th>Full URL</th>
             <th>Short URL</th>
-            <th>Clicks</th>
+            <th>Clicks from Asia</th>
+            <th>Clicks from Antarctica</th>
+            <th>Clicks from Europe</th>
+            <th>Clicks from North America</th>
+            <th>Clicks from South America</th>
+            <th>Clicks from Australia</th>
+            <th>Clicks from Africa</th>
         </tr>
     </thead>
 <tbody>
@@ -33,7 +48,13 @@
         <tr>
             <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
             <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
-            <td><%= shortUrl.clicks %></td>
+            <td><%= shortUrl.asiaclicks %></td>
+            <td><%= shortUrl.antarcticaclicks %></td>
+            <td><%= shortUrl.europeclicks %></td>
+            <td><%= shortUrl.northamericaclicks %></td>
+            <td><%= shortUrl.southamericaclicks %></td>
+            <td><%= shortUrl.australiaclicks %></td>
+            <td><%= shortUrl.africaclicks %></td>
         </tr>
     <%}) %>
 </tbody>

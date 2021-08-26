@@ -11,7 +11,37 @@ const shortUrlSchema= new mongoose.Schema({
         required: true,
         default: shortId.generate
     },
-    clicks: {
+    asiaclicks: {
+        type: Number,
+        required: true,
+        default:0
+    },
+    europeclicks: {
+        type: Number,
+        required: true,
+        default:0
+    },
+    africaclicks: {
+        type: Number,
+        required: true,
+        default:0
+    },
+    northamericaclicks: {
+        type: Number,
+        required: true,
+        default:0
+    },
+    southamericaclicks: {
+        type: Number,
+        required: true,
+        default:0
+    },
+    australiaclicks: {
+        type: Number,
+        required: true,
+        default:0
+    },
+    antarcticaclicks: {
         type: Number,
         required: true,
         default:0
